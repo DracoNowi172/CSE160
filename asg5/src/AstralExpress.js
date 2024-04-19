@@ -49,11 +49,11 @@ function main() {
     const cardGeo = new THREE.PlaneGeometry(2.9, 4.5);
     //for some reason the cards wont load on github pages. may need to change the name
     const cardTextures = [
-        'resources/images/yugiohBackground.JPG',
-        'resources/images/yugiohBackground.JPG',
+        'resources/images/yugiohBackground.jpg',
+        'resources/images/yugiohBackground.jpg',
         'resources/images/PomPomofTheTrailblaze.jpeg',
-        'resources/images/yugiohBackground.JPG',
-        'resources/images/yugiohBackground.JPG'
+        'resources/images/yugiohBackground.jpg',
+        'resources/images/yugiohBackground.jpg'
     ];
 
     const cardDetails = [

@@ -47,6 +47,7 @@ function main() {
 
     // Cards' position and individual textures
     const cardGeo = new THREE.PlaneGeometry(2.9, 4.5);
+    //for some reason the cards wont load on github pages. may need to change the name
     const cardTextures = [
         'resources/images/yugiohBackground.JPG',
         'resources/images/yugiohBackground.JPG',

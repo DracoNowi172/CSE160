@@ -48,11 +48,11 @@ function main() {
     // Cards' position and individual textures
     const cardGeo = new THREE.PlaneGeometry(2.9, 4.5);
     const cardTextures = [
-        'resources/images/yugiohBackground.JPG',
-        'resources/images/yugiohBackground.JPG',
+        'resources/images/yugiohBackground.jpg',
+        'resources/images/yugiohBackground.jpg',
         'resources/images/PomPomofTheTrailblaze.jpeg',
-        'resources/images/yugiohBackground.JPG',
-        'resources/images/yugiohBackground.JPG'
+        'resources/images/yugiohBackground.jpg',
+        'resources/images/yugiohBackground.jpg'
     ];
 
     const cardDetails = [

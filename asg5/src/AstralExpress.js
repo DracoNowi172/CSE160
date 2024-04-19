@@ -48,11 +48,11 @@ function main() {
     // Cards' position and individual textures
     const cardGeo = new THREE.PlaneGeometry(2.9, 4.5);
     const cardTextures = [
-        'resources/images/yugiohBackground.jpg',
-        'resources/images/yugiohBackground.jpg',
+        'resources/images/yugiohBackground.JPG',
+        'resources/images/yugiohBackground.JPG',
         'resources/images/PomPomofTheTrailblaze.jpeg',
-        'resources/images/yugiohBackground.jpg',
-        'resources/images/yugiohBackground.jpg'
+        'resources/images/yugiohBackground.JPG',
+        'resources/images/yugiohBackground.JPG'
     ];
 
     const cardDetails = [
@@ -81,8 +81,8 @@ function main() {
     });
 
     //Pendelum indicators
-    const sphereTexture1 = loader.load('resources/images/pendulumRed.jpg');
-    const sphereTexture2 = loader.load('resources/images/pendulumBlue.jpg');
+    const sphereTexture1 = loader.load('resources/images/PendulumRed.jpg');
+    const sphereTexture2 = loader.load('resources/images/PendulumBlue.jpg');
     const sphereMaterial1 = new THREE.MeshPhongMaterial({ map: sphereTexture1 });
     const sphereMaterial2 = new THREE.MeshPhongMaterial({ map: sphereTexture2 });
     const sphereGeometry = new THREE.SphereGeometry(1, 32, 32);
@@ -107,7 +107,7 @@ function main() {
     
     const pyramidGeometry = new THREE.ConeGeometry(1, 2, 4); // radius, height, radial segments
     pyramidGeometry.rotateY(Math.PI / 4); // Align the pyramid base to square
-    const pyramidTexture = loader.load('resources/images/MilleniumPuzzle.jpg');
+    const pyramidTexture = loader.load('resources/images/MilleniumPuzzle.JPG');
     const pyramidMaterial = new THREE.MeshPhongMaterial({
         map: pyramidTexture,
         side: THREE.DoubleSide

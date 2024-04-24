@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Change a point color</title>
+  </head> 
+  <!-- Link to base code: https://rodger.global-linguist.com/webgl/ch02/ColoredPoints.html-->
+  <body onload="main()">
+    <canvas id="webgl" width="400" height="400">
+      Please use a browser that supports "canvas"
+    </canvas>
+
+    <p id="numdot"> XXX </p>
+    
+    <!-- Button code-->
+
+    <label>
+      <input type="checkbox" id="cameraMouseControl" onchange="toggleCameraMouse(this.checked)"> Toggle Camera Mouse Control
+  </label>
+  <script>
+      function toggleCameraMouse(checked) {
+          cameraMouse = checked;
+          if (!checked) {
+              document.onmousemove = null;  // Disable mousemove when not using the mouse to control the camera
+          }
+      }
+  </script>
+
+    <!-- Sliders code-->
+    <p></p>
+    Animation:
+    <button type="button" id="animationMainOnButton">ON</button>
+    <button type="button" id="animationMainOffButton">OFF</button> 
+    <p>Arms <input type="range" min="-45" max="45" value="0" class="slider" id="ArmsSlide"></p>
+    <!-- Animation:
+    <button type="button" id="animationArmsOnButton">ON</button>
+    <button type="button" id="animationArmsOffButton">OFF</button>  -->
+    <p>EarL <input type="range" min="-10" max="20" value="0" class="slider" id="EarLSlide"></p> 
+    <!-- Animation:
+    <button type="button" id="animationEarLOnButton">ON</button>
+    <button type="button" id="animationEarLOffButton">OFF</button>  -->
+    <p>EarR <input type="range" min="-10" max="20" value="0" class="slider" id="EarRSlide"></p>
+    <p>EarR2 <input type="range" min="-10" max="20" value="0" class="slider" id="EarRSlide2"></p>
+    <p>EarR3 <input type="range" min="-10" max="20" value="0" class="slider" id="EarRSlide3"></p>
+    <!-- Animation:
+    <button type="button" id="animationEarROnButton">ON</button>
+    <button type="button" id="animationEarROffButton">OFF</button> -->
+    <p>Camera Angle <input type="range" min="-180" max="180" value="0" class="slider" id="angleSlide"></p>
+
+    
+    <!-- Imports-->
+    <script src="../lib/webgl-utils.js"></script>
+    <script src="../lib/webgl-debug.js"></script>
+    <script src="Point.js"></script>
+    <script src="Circle.js"></script>
+    <script src="Triangle.js"></script>
+    <script src="Cube.js"></script>
+    <script src="../lib/cuon-matrix-cse160.js"></script>
+    <script src="../lib/cuon-utils.js"></script>
+    <script src="BlockyAnimal.js"></script>
+    <h3>Name: Alex Rodriguez</h3>
+    <p>Email: arodr293@ucsc.edu</p>
+    <h3>Notes to Grader</h3>
+    For my animal I created a blocky version of Pom Pom from honkai star rail. 
+    It took alot of work but I managed to animate him walking and waving his ears like he does in game, 
+    for my alt animation I had him wave his hat at you! If you want orbital controls by clicking on the canvas 
+    please toggle the camera controls using the toggle button I provided (I found it easier that way) and I 
+    figured it would be best to have the 2nd level joint controls isolated to pom poms right ear only. 
+    It still counts though if im not mistaken. Overall Pom Pom is ready to trailblaze!
+    Also I used a circle shape to make his tail, turn him around to see it!
+    <p></p>
+  </body>
+</html>

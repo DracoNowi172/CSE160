@@ -249,7 +249,7 @@ function initTextures(gl, n){
     return false;
   }
   image.onload = function(){ sendImageToTexture0( image);};
-  image.src = 'copen.JPG';
+  image.src = 'copen.jpg';
 
   //add more images for textures here
   var image2 = new Image();
@@ -258,7 +258,7 @@ function initTextures(gl, n){
     return false;
   }
   image2.onload = function(){ sendImageToTexture1( image2);};
-  image2.src = 'fodlan.JPG';
+  image2.src = 'fodlan.jpg';
 
   var image3 = new Image();
   if(!image3){
@@ -266,7 +266,7 @@ function initTextures(gl, n){
     return false;
   }
   image3.onload = function(){ sendImageToTexture2( image3);};
-  image3.src = 'aethersky.JPG';
+  image3.src = 'aethersky.jpg';
 
   var image4 = new Image();
   if(!image4){
@@ -274,7 +274,7 @@ function initTextures(gl, n){
     return false;
   }
   image4.onload = function(){ sendImageToTexture3( image4);};
-  image4.src = 'blastermaster.JPG';
+  image4.src = 'blastermaster.jpg';
 
   return true;
 }

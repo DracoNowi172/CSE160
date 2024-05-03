@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Change a point color</title>
+  </head> 
+  <!-- Link to base code: https://rodger.global-linguist.com/webgl/ch02/ColoredPoints.html-->
+  <body onload="main()">
+    <canvas id="webgl" width="400" height="400">
+      Please use a browser that supports "canvas"
+    </canvas>
+
+    <p id="numdot"> XXX </p>
+    
+    <!-- Button code-->
+
+    <!-- Sliders code-->
+    <p></p>
+    Animation:
+    <button type="button" id="animationMainOnButton">ON</button>
+    <button type="button" id="animationMainOffButton">OFF</button> 
+    <!-- Animation:
+    <button type="button" id="animationArmsOnButton">ON</button>
+    <button type="button" id="animationArmsOffButton">OFF</button>  -->
+    <p>magenta <input type="range" min="-10" max="20" value="0" class="slider" id="magentaSlide"></p> 
+    <p>yellow <input type="range" min="-45" max="45" value="0" class="slider" id="yellowSlide"></p>
+    <!-- Animation:
+    <button type="button" id="animationEarLOnButton">ON</button>
+    <button type="button" id="animationEarLOffButton">OFF</button>  -->
+    <!-- <p>EarR <input type="range" min="-10" max="20" value="0" class="slider" id="EarRSlide"></p>
+    <p>EarR2 <input type="range" min="-10" max="20" value="0" class="slider" id="EarRSlide2"></p>
+    <p>EarR3 <input type="range" min="-10" max="20" value="0" class="slider" id="EarRSlide3"></p> -->
+    <!-- Animation:
+    <button type="button" id="animationEarROnButton">ON</button>
+    <button type="button" id="animationEarROffButton">OFF</button> -->
+    <p>Camera Angle <input type="range" min="-180" max="180" value="0" class="slider" id="angleSlide"></p>
+
+    
+    <!-- Imports-->
+    <!-- <script src="../lib/webgl-utils.js"></script>
+    <script src="../lib/webgl-debug.js"></script> -->
+    <script src="Point.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.8.1/gl-matrix-min.js"></script>
+    <script src="Circle.js"></script>
+    <script src="Triangle.js"></script>
+    <script src="Cube.js"></script>
+    <script src="Camera.js"></script>
+    <script src="../lib/cuon-matrix-cse160.js"></script>
+    <script src="../lib/cuon-utils.js"></script>
+    <script src="World.js"></script>
+    <h3>Name: Alex Rodriguez</h3>
+    <p>Email: arodr293@ucsc.edu</p>
+    <h3>Notes to Grader</h3>
+      This assignment satisfies the requirements for the ASG3A rubric. The textures really gave me a hard time
+      and I kept making silly mistakes like not putting stuff in the GLSL
+    <p></p>
+  </body>
+</html>

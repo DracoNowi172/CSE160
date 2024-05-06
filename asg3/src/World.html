@@ -1,58 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Change a point color</title>
-  </head> 
-  <!-- Link to base code: https://rodger.global-linguist.com/webgl/ch02/ColoredPoints.html-->
-  <body onload="main()">
-    <canvas id="webgl" width="400" height="400">
-      Please use a browser that supports "canvas"
-    </canvas>
+<head>
+  <meta charset="utf-8" />
+  <title>Interactive WebGL Scene</title>
+  <style>
+    body {
+      background-image: url('EmblemBackground.jpeg'); /* Replace 'path_to_your_image.jpg' with your actual image file path */
+      background-size: cover; /* Cover the entire area of the page */
+      background-position: center; /* Center the background image */
+      background-repeat: no-repeat; /* Do not repeat the image */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column; /* Ensure elements are stacked vertically */
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+    #webgl {
+      border: 3px solid #ccc; /* Add a border around the canvas */
+      margin-top: 20px; /* Space from top */
+    }
+    button {
+      margin-top: 10px; /* Space between the canvas and the button */
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer; /* Visual cue that it's clickable */
+      background-color: #f8f8f8; /* Light gray background */
+      border: 1px solid #ccc;
+    }
+    button:hover {
+      background-color: #e8e8e8; /* Slightly darker on hover */
+    }
+    .info {
+      width: 50%;
+      margin-top: 20px;
+      background-color: #f0f0f0; /* Light gray background */
+      border: 1px solid #ddd; /* Slight border for the text bubble */
+      border-radius: 8px; /* Rounded corners for the text bubble */
+      padding: 15px; /* Padding around the text */
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+      text-align: center; /* Center the text inside the bubble */
+    }
+  </style>
+</head>
+<body onload="main()">
+  <canvas id="webgl" width="400" height="400"></canvas>
+  <button id="reinforcementsButton">Reinforcements!?</button>
 
-    <p id="numdot"> XXX </p>
-    
-    <!-- Button code-->
-
-    <!-- Sliders code-->
-    <p></p>
-    Animation:
-    <button type="button" id="animationMainOnButton">ON</button>
-    <button type="button" id="animationMainOffButton">OFF</button> 
-    <!-- Animation:
-    <button type="button" id="animationArmsOnButton">ON</button>
-    <button type="button" id="animationArmsOffButton">OFF</button>  -->
-    <p>magenta <input type="range" min="-10" max="20" value="0" class="slider" id="magentaSlide"></p> 
-    <p>yellow <input type="range" min="-45" max="45" value="0" class="slider" id="yellowSlide"></p>
-    <!-- Animation:
-    <button type="button" id="animationEarLOnButton">ON</button>
-    <button type="button" id="animationEarLOffButton">OFF</button>  -->
-    <!-- <p>EarR <input type="range" min="-10" max="20" value="0" class="slider" id="EarRSlide"></p>
-    <p>EarR2 <input type="range" min="-10" max="20" value="0" class="slider" id="EarRSlide2"></p>
-    <p>EarR3 <input type="range" min="-10" max="20" value="0" class="slider" id="EarRSlide3"></p> -->
-    <!-- Animation:
-    <button type="button" id="animationEarROnButton">ON</button>
-    <button type="button" id="animationEarROffButton">OFF</button> -->
-    <p>Camera Angle <input type="range" min="-180" max="180" value="0" class="slider" id="angleSlide"></p>
-
-    
-    <!-- Imports-->
-    <!-- <script src="../lib/webgl-utils.js"></script>
-    <script src="../lib/webgl-debug.js"></script> -->
-    <script src="Point.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.8.1/gl-matrix-min.js"></script>
-    <script src="Circle.js"></script>
-    <script src="Triangle.js"></script>
-    <script src="Cube.js"></script>
-    <script src="Camera.js"></script>
-    <script src="../lib/cuon-matrix-cse160.js"></script>
-    <script src="../lib/cuon-utils.js"></script>
-    <script src="World.js"></script>
+  <div class="info">
+    <h3>Controls:</h3>
+    <p>WASD for movement, Q to look left, E to look right, You can also use the mouse to look around!</p>
+    <h3>STORY:</h3>
+    <p>The kingdom of Askr is under attack by Emblian forces, You find yourself surrounded, but there is hope!
+       Defeat the 10 enemy swordfighters and fafnir's to break their ranks and repel Emblia!
+       (Note: If you wish to challenge more opponents you may press the Reinforcements Button)
+    </p>
     <h3>Name: Alex Rodriguez</h3>
     <p>Email: arodr293@ucsc.edu</p>
     <h3>Notes to Grader</h3>
-      This assignment satisfies the requirements for the ASG3A rubric. The textures really gave me a hard time
-      and I kept making silly mistakes like not putting stuff in the GLSL
-    <p></p>
-  </body>
+    <p>This assignment satisfies the requirements for the ASG3B rubric. The adding and deleting
+       of blocks on the map gave me a REALLY hard time as deciding which block to delete in the 
+       list was really hard. Besides that extracting the x and y coordinates was shockingly harder than 
+       I thought.</p>
+  </div>
+
+  <script src="Point.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.8.1/gl-matrix-min.js"></script>
+  <script src="Circle.js"></script>
+  <script src="Triangle.js"></script>
+  <script src="Cube.js"></script>
+  <script src="map.js"></script>
+  <script src="Camera.js"></script>
+  <script src="../lib/cuon-matrix-cse160.js"></script>
+  <script src="../lib/cuon-utils.js"></script>
+  <script src="World.js"></script>
+</body>
 </html>

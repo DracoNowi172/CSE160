@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Interactive WebGL Scene</title>
+  <style>
+    body {
+      background-image: url('EmblemBackground.jpeg'); /* Replace 'path_to_your_image.jpg' with your actual image file path */
+      background-size: cover; /* Cover the entire area of the page */
+      background-position: center; /* Center the background image */
+      background-repeat: no-repeat; /* Do not repeat the image */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+    #webgl {
+      border: 3px solid #ccc; /* Add a border around the canvas */
+      margin-top: 20px; /* Space from top */
+    }
+    button {
+      margin-top: 10px; /* Space between the canvas and the button */
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer; /* Visual cue that it's clickable */
+      background-color: #f8f8f8; /* Light gray background */
+      border: 1px solid #ccc;
+    }
+    button:hover {
+      background-color: #e8e8e8; /* Slightly darker on hover */
+    }
+    .info {
+      width: 50%;
+      margin-top: 20px;
+      background-color: #f0f0f0; /* Light gray background */
+      border: 1px solid #ddd; /* Slight border for the text bubble */
+      border-radius: 8px; /* Rounded corners for the text bubble */
+      padding: 15px; /* Padding around the text */
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+      text-align: center; /* Center the text inside the bubble */
+    }
+  </style>
+</head>
+<body onload="main()">
+  <canvas id="webgl" width="400" height="400"></canvas>
+  <button id="reinforcementsButton">Reinforcements!?</button>
+  <audio id="victorySound" src="LevelUp.mp3"></audio>
+
+  <div class="info">
+    <h3>Controls:</h3>
+    <p>WASD for movement, Q to look left, E to look right, You can also hold click and use the mouse to look around!</p>
+    <h3>STORY:</h3>
+    <p>The kingdom of Askr is under attack by Emblian forces, You find yourself surrounded, but there is hope!
+       Defeat the 10 enemy swordfighters and fafnir's to break their ranks and repel Emblia!
+       (Note: If you wish to challenge more opponents you may press the Reinforcements Button)
+    </p>
+    <h3>Name: Alex Rodriguez</h3>
+    <p>Email: arodr293@ucsc.edu</p>
+    <h3>Notes to Grader</h3>
+    <p>This assignment satisfies the requirements for the ASG3B rubric. The adding and deleting
+       of blocks on the map gave me a REALLY hard time as deciding which block to delete in the 
+       list was really hard. Besides that extracting the x and y coordinates was shockingly harder than 
+       I thought.</p>
+    <h3>WOW:</h3>
+    <p>For my wow factor this time I decided to make not only timers and pop up notifications for my game
+       But also add some background images for the website the game will show up on. I also went into the
+       game files for Fire Emblem heroes and used the spritework to make game icons. And to top it all off I 
+       added audio! (a level up jingle when you win!)</p>
+  </div>
+
+  <script src="Point.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.8.1/gl-matrix-min.js"></script>
+  <script src="Circle.js"></script>
+  <script src="Triangle.js"></script>
+  <script src="Cube.js"></script>
+  <script src="map.js"></script>
+  <script src="Camera.js"></script>
+  <script src="../lib/cuon-matrix-cse160.js"></script>
+  <script src="../lib/cuon-utils.js"></script>
+  <script src="World.js"></script>
+</body>
+</html>

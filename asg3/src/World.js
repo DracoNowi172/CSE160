@@ -730,7 +730,7 @@ function checkBlocks() {
   let blockExists = false;
   for (let x = 0; x < g_map.length; x++) {
       for (let z = 0; z < g_map[x].length; z++) {
-          if (g_map[x][z] === 2) {
+          if (g_map[x][z] === 2) { // Assuming '2' represents an enemy block
               blockExists = true;
               break;
           }
@@ -741,8 +741,13 @@ function checkBlocks() {
   if (!blockExists) {
       let endTime = Date.now();
       let duration = (endTime - startTime) / 1000; // Duration in seconds
-      clearInterval(timerInterval); // Stop checking
+      clearInterval(timerInterval); // Stop the timer
       timerInterval = null; // Reset timer ID
+
+      // Play the victory sound
+      var victorySound = document.getElementById('victorySound');
+      victorySound.play();
+
       console.log("All enemies defeated. Total time: " + duration + " seconds.");
       alert("All enemies defeated in " + duration + " seconds."); // Show the time to the user
   }

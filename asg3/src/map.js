@@ -33,6 +33,7 @@ var g_map = [//32x32 as required
 ];
 var walls = []; // This will only hold boundary walls
 var randomBlocks = []; // This will hold randomly placed blocks
+var allies = [];
 
 function createWorld() {
     for (let x = 0; x < g_map.length; x++) {
@@ -90,17 +91,7 @@ function shuffleArray(array){
 //placeRandomBlocks(10, [0, 1, 2, 3]); // Place 10 blocks, using texture indices 0, 1, 2, 3
 // var lastBlockPosition = { x: null, z: null }; // Stores the last block position
 
-// function updateTrail(camera) {
-//     let gridX = Math.floor(camera.x + 15.5);
-//     let gridZ = Math.floor(camera.z + 15.5);
+// Function to place a block directly in front of the camera
 
-//     if (gridX >= 0 && gridX < g_map.length && gridZ >= 0 && gridZ < g_map[gridX].length) {
+// Event listener to detect key press (e.g., the 'b' key)
 
-//         // Place the new block at the camera position, but only if it's an empty space
-//         if (g_map[gridX][gridZ] === 0) {
-//             g_map[gridX][gridZ] = 2;
-//             createCubeAt(gridX, gridZ, 7); // Texture 7 for the camera block
-//             lastBlockPosition = { x: gridX, z: gridZ }; // Update the last block position
-//         }
-//     }
-// }

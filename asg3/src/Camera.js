@@ -188,6 +188,13 @@ class Camera {
         this.y = this.eye.elements[1];
         this.z = this.eye.elements[2];
     }
+    getForwardDirection() {
+        let forward = new Vector3();
+        forward.set(this.at);
+        forward.sub(this.eye);
+        forward.normalize();
+        return forward; // Return the normalized forward direction
+    }
 }
 function refreshRandomBlocks() {
     randomBlocks = [];  // Clear the current list
@@ -201,6 +208,27 @@ function refreshRandomBlocks() {
                 block.translate(x - 15.5, 0.01, z - 15.5);
                 randomBlocks.push(block);
             }
+        }
+    }
+}
+//let cameraDirection = { x: Math.cos(g_camera.angle), z: Math.sin(camera.camera.angle) }; // Example calculation
+// Function to place a block in front of the camera
+function placeBlockAtCameraPosition(camera) {
+    let forwardDirection = camera.getForwardDirection();
+    let frontX = camera.eye.elements[0] + forwardDirection.elements[0];
+    let frontZ = camera.eye.elements[2] + forwardDirection.elements[2];
+
+    let gridX = Math.floor(frontX + 15.5);
+    let gridZ = Math.floor(frontZ + 15.5);
+
+    if (gridX >= 0 && gridX < g_map.length && gridZ >= 0 && gridZ < g_map[gridX].length) {
+        if (g_map[gridX][gridZ] === 0) { // Check if the position is empty
+            g_map[gridX][gridZ] = 3; // Set the block type to '3'
+            let block = new Cube();
+            block.textureNum = 7; // Choose the texture number for the new block
+            block.translate(gridX - 15.5, 0.01, gridZ - 15.5);
+            allies.push(block); // Add this block to your blocks array
+            renderScene();
         }
     }
 }

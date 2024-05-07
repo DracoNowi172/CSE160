@@ -94,6 +94,7 @@ var timerInterval; // This will hold our interval ID for clearing later
 var startTime; // When the timer started
 
 
+
 var playerPosition = { x: 16, z: 16 }; // Start in the center of the map
 var playerTextureNum = 4; // Texture index for the player's block
 let lastSpecialPosition = { x: null, z: null };
@@ -277,6 +278,17 @@ function setupWebGL(){
 
 function addActionsForHtmlUI(){
   document.getElementById('reinforcementsButton').onclick = function() { placeRandomBlocks(10, [5, 6]);};
+  document.addEventListener('keydown', function(event) {
+    if (event.key == 'b') { // Replace 'b' with your desired key
+      placeBlockAtCameraPosition(g_camera); // Call placeBlockInFront function when 'b' is pressed
+    }
+  });
+  document.addEventListener('keydown', function(event) {
+    if (event.key == 'v') { // Replace 'b' with your desired key
+      allies = []; // Call placeBlockInFront function when 'b' is pressed
+    }
+  });
+
   //document.getElementById('animationMainOffButton').onclick = function() { g_animationMainOn = false};
 
   // //Slider events
@@ -711,6 +723,7 @@ function renderScene(){
   // Render each wall
   walls.forEach(wall => wall.render());
   randomBlocks.forEach(block => block.render());
+  allies.forEach(block => block.render());
   
   var duration = performance.now() - startTime;
   // Prevent division by zero and handle case where duration might be zero

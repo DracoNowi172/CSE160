@@ -185,8 +185,8 @@ function main() {
 
 
     //Pendelum indicators
-    const sphereTexture1 = loader.load('resources/images/pendulumRed.jpeg');
-    const sphereTexture2 = loader.load('resources/images/pendulumBlue.jpeg');
+    const sphereTexture1 = loader.load('resources/images/PendulumRed.jpeg');
+    const sphereTexture2 = loader.load('resources/images/PendulumBlue.jpeg');
     const sphereMaterial1 = new THREE.MeshPhongMaterial({ map: sphereTexture1 });
     const sphereMaterial2 = new THREE.MeshPhongMaterial({ map: sphereTexture2 });
     const sphereGeometry = new THREE.SphereGeometry(1, 32, 32);

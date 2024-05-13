@@ -4,10 +4,17 @@ import { OrbitControls } from '../lib/three.js-master/examples/jsm/controls/Orbi
 //import { MTLLoader } from '../lib/three.js-master/examples/jsm/loaders/MTLLoader.js';
 import { FBXLoader } from '../lib/three.js-master/examples/jsm/loaders/FBXLoader.js';
 
+//github submission imports
+// import * as THREE from '../lib/three.module.js';
+// import { OrbitControls } from '../lib/OrbitControls.js';
+// //import { OBJLoader } from './lib/OBJLoader.js';
+// import { FBXLoader } from '../lib/FBXLoader.js';
+
 function main() {
     const canvas = document.querySelector('#c');
     const renderer = new THREE.WebGLRenderer({ canvas });
     renderer.setSize(window.innerWidth, window.innerHeight); // Set size here to avoid resizing issues at load
+    renderer.outputEncoding = THREE.sRGBEncoding;  // Ensure renderer output encoding is set
 
     // Camera setup
     const fov = 75;
@@ -25,14 +32,14 @@ function main() {
 
     // Skybox using equirectangular image
     const loader = new THREE.TextureLoader();
-    const texture = loader.load('resources/images/Space.jpg', () => {
+    const texture = loader.load('resources/images/Space.jpeg', () => {
         const rt = new THREE.WebGLCubeRenderTarget(texture.image.height);
         rt.fromEquirectangularTexture(renderer, texture);
         scene.background = rt.texture;
     });
 
     // Playmat
-    const woodTexture = loader.load('resources/images/yugiohPlaymat.jpg', function(texture) {
+    const woodTexture = loader.load('resources/images/yugiohPlaymat.jpeg', function(texture) {
         texture.generateMipmaps = true;
         texture.minFilter = THREE.LinearMipmapLinearFilter;
         texture.magFilter = THREE.LinearFilter;
@@ -47,16 +54,15 @@ function main() {
 
     // Cards' position and individual textures
     const cardGeo = new THREE.PlaneGeometry(2.9, 4.5);
-    //for some reason the cards wont load on github pages. may need to change the name
-    const cardTextures = [
-        'resources/images/yugiohBackground.jpg',
-        'resources/images/yugiohBackground.jpg',
+    const MonsterCardTextures = [
+        'resources/images/yugiohBackground.jpeg',
+        'resources/images/yugiohBackground.jpeg',
         'resources/images/PomPomofTheTrailblaze.jpeg',
-        'resources/images/yugiohBackground.jpg',
-        'resources/images/yugiohBackground.jpg'
+        'resources/images/yugiohBackground.jpeg',
+        'resources/images/yugiohBackground.jpeg'
     ];
 
-    const cardDetails = [
+    const MonsterZonecardDetails = [
         { x: -8.3, y: 0.3, z: -2.6 },
         { x: -4.1, y: 0.3, z: -2.6 },
         { x: 0, y: 0.3, z: -2.6 },
@@ -64,8 +70,51 @@ function main() {
         { x: 8.3, y: 0.3, z: -2.6 }
     ];
 
-    cardDetails.forEach((detail, index) => {
-        const texture = loader.load(cardTextures[index]); // Load each card texture
+    const SpellCardTextures = [
+        'resources/images/yugiohBackground.jpeg',
+        'resources/images/yugiohBackground.jpeg',
+        'resources/images/WatchThisAwesomeMove!.jpeg',
+        'resources/images/yugiohBackground.jpeg',
+        'resources/images/yugiohBackground.jpeg'
+    ];
+    const SpellZonecardDetails = [
+        { x: -7.7, y: 0.3, z: 2.8 },
+        { x: -3.8, y: 0.3, z: 2.8 },
+        { x: 0, y: 0.3, z: 2.8 },
+        { x: 3.8, y: 0.3, z: 2.8 },
+        { x: 7.7, y: 0.3, z: 2.8 }
+    ];
+
+    const PendulumTextures = [
+        'resources/images/TrailblazeroftheTrailblaze.jpeg',
+        'resources/images/SilverwolfoftheTrailblaze.jpeg'
+    ];
+    const PendulumDetails = [
+        { x: -11.9, y: 0.3, z: 2 },
+        { x: 11.9, y: 0.3, z: 2 }
+    ];
+
+    const generalTextures = [
+        'resources/images/OddEyes.jpeg',
+        'resources/images/FireFlyoftheTrailblaze.jpeg',
+        'resources/images/SyntheticBlackHole.jpeg',
+        'resources/images/StarOfEden.jpeg',
+        'resources/images/DeskBot.jpeg',
+        'resources/images/Nirvana.jpeg',
+        'resources/images/yugiohBackground.jpeg'
+    ];
+    const generalDetails = [
+        { x: -7.7, y: 0.3, z: 8.8 },
+        { x: -3.8, y: 0.3, z: 8.8 },
+        { x: 0, y: 0.3, z: 8.8 },
+        { x: 3.8, y: 0.3, z: 8.8 },
+        { x: 7.7, y: 0.3, z: 8.8 },
+        { x: -12.7, y: 0.3, z: 7 },
+        { x: 12.7, y: 0.3, z: 7 }
+    ];
+
+    MonsterZonecardDetails.forEach((detail, index) => {
+        const texture = loader.load(MonsterCardTextures[index]); // Load each card texture
         const material = new THREE.MeshBasicMaterial({
             map: texture,
             side: THREE.DoubleSide
@@ -81,9 +130,63 @@ function main() {
         scene.add(card);
     });
 
+    SpellZonecardDetails.forEach((detail, index) => {
+        const texture = loader.load(SpellCardTextures[index]); // Load each card texture
+        const material = new THREE.MeshBasicMaterial({
+            map: texture,
+            side: THREE.DoubleSide
+        });
+        const card = new THREE.Mesh(cardGeo, material);
+        card.position.set(detail.x, detail.y, detail.z);
+        //necessary to make it face down
+        card.rotation.x = Math.PI/2;
+        //use Math.PI/2; to flip to defense mode
+        card.rotation.y = Math.PI;
+        //orient card to be player sided
+        card.rotation.z = Math.PI;
+        scene.add(card);
+    });
+
+    PendulumDetails.forEach((detail, index) => {
+        const texture = loader.load(PendulumTextures[index]); // Load each card texture
+        const material = new THREE.MeshBasicMaterial({
+            map: texture,
+            side: THREE.DoubleSide
+        });
+        const card = new THREE.Mesh(cardGeo, material);
+        card.position.set(detail.x, detail.y, detail.z);
+        //necessary to make it face down
+        card.rotation.x = Math.PI/2;
+        //use Math.PI/2; to flip to defense mode
+        card.rotation.y = Math.PI;
+        //orient card to be player sided
+        card.rotation.z = Math.PI;
+        scene.add(card);
+    });
+
+    generalDetails.forEach((detail, index) => {
+        const texture = loader.load(generalTextures[index]); // Load each card texture
+        const material = new THREE.MeshBasicMaterial({
+            map: texture,
+            side: THREE.DoubleSide
+        });
+        const card = new THREE.Mesh(cardGeo, material);
+        card.position.set(detail.x, detail.y, detail.z);
+        //necessary to make it face down
+        card.rotation.x = Math.PI/2;
+        //use Math.PI/2; to flip to defense mode
+        card.rotation.y = Math.PI;
+        //orient card to be player sided
+        card.rotation.z = Math.PI;
+        scene.add(card);
+    });
+
+
+
+
     //Pendelum indicators
-    const sphereTexture1 = loader.load('resources/images/PendulumRed.jpg');
-    const sphereTexture2 = loader.load('resources/images/PendulumBlue.jpg');
+    const sphereTexture1 = loader.load('resources/images/pendulumRed.jpeg');
+    const sphereTexture2 = loader.load('resources/images/pendulumBlue.jpeg');
     const sphereMaterial1 = new THREE.MeshPhongMaterial({ map: sphereTexture1 });
     const sphereMaterial2 = new THREE.MeshPhongMaterial({ map: sphereTexture2 });
     const sphereGeometry = new THREE.SphereGeometry(1, 32, 32);
@@ -91,12 +194,12 @@ function main() {
     const sphere1 = new THREE.Mesh(sphereGeometry, sphereMaterial1);
     sphere1.position.set(12, 2, 3);
     sphere1.rotation.y = -Math.PI / 4; // spin to proper face
-    const light1 = new THREE.PointLight(0xfc0f03, 21, 100); // Red Pendulum light
+    const light1 = new THREE.PointLight(0xfc0f03, 10, 100); // Red Pendulum light
     light1.position.set(12, 2, 3);
     const sphere2 = new THREE.Mesh(sphereGeometry, sphereMaterial2);
     sphere2.position.set(-12, 2, 3);
     sphere2.rotation.y = -Math.PI / 4; // spin to proper face
-    const light2 = new THREE.PointLight(0x036bfc, 21, 100); // Blue pendulum light
+    const light2 = new THREE.PointLight(0x036bfc, 10, 100); // Blue pendulum light
     light2.position.set(-12, 2, 3);
     scene.add(sphere1);
     scene.add(sphere2);
@@ -108,7 +211,7 @@ function main() {
     
     const pyramidGeometry = new THREE.ConeGeometry(1, 2, 4); // radius, height, radial segments
     pyramidGeometry.rotateY(Math.PI / 4); // Align the pyramid base to square
-    const pyramidTexture = loader.load('resources/images/MilleniumPuzzle.JPG');
+    const pyramidTexture = loader.load('resources/images/MilleniumPuzzle.jpeg');
     const pyramidMaterial = new THREE.MeshPhongMaterial({
         map: pyramidTexture,
         side: THREE.DoubleSide

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Change a point color</title>
+  </head>
+  <!-- Link to base code: https://rodger.global-linguist.com/webgl/ch02/ColoredPoints.html-->
+  <body onload="main()">
+    <canvas id="webgl" width="400" height="400">
+      Please use a browser that supports "canvas"
+    </canvas>
+
+    <p id="numdot">XXX</p>
+    
+    <!-- Button code-->
+    <p>
+      <button type="button" id="b1">Normals On</button>
+      <button type="button" id="b2">Normals Off</button>
+      <button type="button" id="b3">visualizerOn</button>
+      <button type="button" id="b3.1">visualizerOff</button>
+    </p>
+    <p>
+      <button type="button" id="b4">Light On</button>
+      <button type="button" id="b5">Light Off</button>
+      <button type="button" id="b4.1">Spotlight On</button>
+      <button type="button" id="b5.1">Spotlight Off</button>
+      <button type="button" id="b6">light animation on</button>
+      <button type="button" id="b7">light animation off</button>
+    </p>
+    <p></p>
+    Animation:
+    <button type="button" id="animationMainOnButton">ON</button>
+    <button type="button" id="animationMainOffButton">OFF</button> 
+    <p>
+      LightX <input type="range" min="-350" max="350" value="340" class="slider" id="lightSlideX">
+      LightY <input type="range" min="-250" max="500" value="450" class="slider" id="lightSlideY"> 
+      LightZ <input type="range" min="-350" max="350" value="-300" class="slider" id="lightSlideZ"> 
+    </p>  
+    <p>
+      SpotLightX <input type="range" min="-350" max="350" value="340" class="slider" id="spotSlideX">
+      SpotLightY <input type="range" min="-250" max="500" value="450" class="slider" id="spotSlideY"> 
+      SpotLightZ <input type="range" min="-350" max="350" value="-300" class="slider" id="spotSlideZ"> 
+    </p>  
+
+    <!-- Sliders code-->
+    <h1>Colors!</h1>
+    <label for="lightColorR">Red:</label>
+<input type="range" id="lightColorR" name="lightColorR" min="0" max="1" step="0.01" value="1"><br>
+<label for="lightColorG">Green:</label>
+<input type="range" id="lightColorG" name="lightColorG" min="0" max="1" step="0.01" value="1"><br>
+<label for="lightColorB">Blue:</label>
+<input type="range" id="lightColorB" name="lightColorB" min="0" max="1" step="0.01" value="1"><br>
+    <p>Camera <input type="range" min="-180" max="180" value="0" class="slider" id="cameraAngle"></p>
+    <p>Magenta <input type="range" min="-45" max="45" value="0" class="slider" id="magentaSlide"></p>  
+    <button type="button" id="MAnimationON">AnimationON</button>
+    <button type="button" id="MAnimationOFF">AnimationOFF</button>
+    <p></p>
+    <p>Yellow <input type="range" min="-45" max="45" value="0" class="slider" id="yellowSlide"></p>
+    <button type="button" id="YAnimationON">AnimationON</button>
+    <button type="button" id="YAnimationOFF">AnimationOFF</button>
+    <!-- Imports-->
+    <!-- <script src="../lib/webgl-utils.js"></script>
+    <script src="../lib/webgl-debug.js"></script> -->
+    <script src="../lib/cuon-matrix-cse160.js"></script>
+    <script src="../lib/cuon-utils.js"></script>
+    <script src="Point.js"></script>
+    <script src="Sphere.js"></script>
+    <script src="Camera.js"></script>
+    <script src="Circle.js"></script>
+    <script src="Triangle.js"></script>
+    <script src="Cube.js"></script>
+    
+    <script src="World.js"></script>
+    <h1>Name: Alex Rodriguez</h1>
+    <p>Email: arodr293@ucsc.edu</p>
+    <h3>Notes to Grader</h3>
+    <p>
+      I built this code off of my blocky animal code. theres alot of buttons but the main thing
+      to keep in mind is that to turn the point light on, switch spotlight to off. if you want
+      spotlight on press spotlight on and pointlight will turn off. Both lights can be controlled
+      with their respective sliders, just make sure to press light animation off to enable slider 
+      control. My blocky animal code still works so if you want pompom to wave his hat at you
+      press animation On and shift click on him to swap between his states. as per usual. The light 
+      color can also be changed by sliding around the RGB slider. and the magenta and yellow cubes
+      have their basic functionality like in professors videos. I reccoment turning on the Normals
+      and turning on the animation for magenta and yellow to more easily see the normals changing. 
+      Finally we have the visualizer, it will display the light just like in professors videos 
+      (Note: using the visualizer with spotlight on is not reccomended as spotlight has a much wider
+      range and affects the whole screen, meaning if the visualizer is on it will cover the screen in 
+      green and red. This behaviour is what was requested however.)
+    </p>
+  </body>
+</html>

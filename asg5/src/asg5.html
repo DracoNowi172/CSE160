@@ -1,3 +1,4 @@
+<!-- 
 <!DOCTYPE html>
 
 <html lang="en">
@@ -25,7 +26,7 @@
         "three": "https://threejs.org/build/three.module.js",
         "three/addons/": "https://threejs.org/examples/jsm/"
       }
-    }</script><!-- Remove this when import maps will be widely supported -->
+    }</script>
    
     <script type="module" src="AstralExpress.js"></script>
 </html>
@@ -52,8 +53,28 @@
 <h3>Notes to Grader</h3>
 <p>Each card is a rectangle object so I have 19 rectangles, 2 spheres, and 1 pyramid for my shapes. 
   My object model is pom pom from honkai star rail, and I imported orbital controls for my camera to make 
-  editing and viewing easier</p>
-<!-- "imports": {
-        "three": "../lib/three.js-master/build/three.module.js",
-        "three/addons/": "../lib/three.js-master/examples/jsm/"
-      } -->
+  editing and viewing easier. I personally made all of the star rail cards using an online card making tool also!
+  so I worked really hard on this story cohesion. I only wish I could have implemented a way to animate pom pom or
+  make more objects to appear on each card</p> -->
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Assignment 5A</title>
+      <script type = "importmap">
+          {
+              "import": 
+              {
+                  "three": "../lib/three.js-master/build/three.module.js",
+                  "three/addons/": "../lib/three.js-master/examples/jsm"
+              }
+          }
+      </script>
+  </head>
+  <body>
+      <canvas id = "c"></canvas>
+      <script type="module" src="AstralExpress.js"></script>
+  </body>
+  </html>
+  

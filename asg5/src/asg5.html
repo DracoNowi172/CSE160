@@ -1,56 +1,107 @@
-
 <!DOCTYPE html>
-<h1>Name: Alex Rodriguez</h1>
-<p>Email: arodr293@ucsc.edu</p>
-<h3>Story</h3>
-<p>Oh no! This isn’t Penacony! Where are we? And... gasp! Everyone's turned into Yu-Gi-Oh! 
-  cards! This is a disaster! But don't worry, I'll save the day! 
-  As "Pom Pom of the Trailblaze," I'll duel to bring back our friends and get us back on track!
-
-  "Let’s duel!""
-  
-  First, I summon myself, “Pom Pom of the Trailblaze” to the battlefield! With 500 ATK and 2000 DEF, I’m ready to fight! Next,
-   I activate my special ability, “Warp Jump!” This lets me draw another Astral Express member from the deck—let’s bring out 
-   “Trailblazer of the Trailblaze” they have a pendulum scale of 1 so I place them in my pendulum zone!!
-  
-  Now, let's draw a card... it’s “Silver Wolf of the Trailblaze!” With A pendulum scale of 8, she's ready to debuff any foe!
-  With my pendulum scale set Im ready to fight!
-  
-  Your move, opponent! Pom Pom is ready to protect the Astral Express and bring back our crew! Let's 
-  blaze through this duel and return everyone to normal!
-</p>
-<h3>Notes to Grader</h3>
-<p>Each card is a rectangle object so I have 19 rectangles, 2 spheres, and 1 pyramid for my shapes. 
-  My object model is pom pom from honkai star rail, and I imported orbital controls for my camera to make 
-  editing and viewing easier. I personally made all of the star rail cards using an online card making tool also!
-  so I worked really hard on this story cohesion. I only wish I could have implemented a way to animate pom pom or
-  make more objects to appear on each card</p>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <style>
-      html, body {
-          height: 70%;
-          margin: 0;
-      }
-      #c {
-          width: 100%;
-          height: 70%;
-          display: block;
-      }
-      </style>
-    <title>Assignment 5A - Alex R</title>
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <title>Assignment 5A - Alex R</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-image: url('resources/images/AstralExpress.jpeg'); /* Replace 'EmblemBackground.jpeg' with your actual image file path */
+      background-size: cover; /* Cover the entire area of the page */
+      background-position: center; /* Center the background image */
+      background-repeat: space; /* Do not repeat the image */
+      text-align: center; /* Center all text */
+    }
+    #content {
+      width: 50%; /* Adjust as needed */
+      margin-top: 500px;
+    }
+    button {
+      margin-top: 0px; 
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer; /* Visual cue that it's clickable */
+      background-color: #f8f8f8; /* Light gray background */
+      border: 1px solid #ccc;
+    }
+    button:hover {
+      background-color: #e8e8e8; /* Slightly darker on hover */
+    }
+    .info {
+      width: 100%;
+      background-color: #f0f0f0; /* Light gray background */
+      border: 1px solid #ddd; /* Slight border for the text bubble */
+      border-radius: 8px; /* Rounded corners for the text bubble */
+      padding: 15px; /* Padding around the text */
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    }
+    #c {
+      width: 40%; /* Adjust width as needed */
+      height: 100px; /* Adjust height as needed */
+      display: block;
+      margin-left: -200px;
+      /* border: 3px solid #ccc; Add a border around the canvas */
+    }
+    #controls {
+      margin: 0px;
+    }
+    
+  </style>
+</head>
+<body onload="main()">
+  <div id="content">
+    <div class="info">
+      <h1>Name: Alex Rodriguez</h1>
+      <p>Email: arodr293@ucsc.edu</p>
+      <h3>Story</h3>
+      <p>
+        Oh no! This isn’t Penacony! Where are we? And... gasp! Everyone's turned into Yu-Gi-Oh! 
+        cards! This is a disaster! But don't worry, I'll save the day! 
+        As "Pom Pom of the Trailblaze," I'll duel to bring back our friends and get us back on track! With Robin singing we WONT LOSE!
+        "Let’s duel!"
+        First, I summon myself, “Pom Pom of the Trailblaze” to the battlefield! With 500 ATK and 2000 DEF, I’m ready to fight! Next,
+        I activate my special ability, “Warp Jump!” This lets me draw another Astral Express member from the deck—let’s bring out 
+        “Trailblazer of the Trailblaze” they have a pendulum scale of 1 so I place them in my pendulum zone!!
+        Now, let's draw a card... it’s “Silver Wolf of the Trailblaze!” With A pendulum scale of 8, she's ready to debuff any foe!
+        With my pendulum scale set Im ready to fight!
+        Your move, opponent! Pom Pom is ready to protect the Astral Express and bring back our crew! Let's 
+        blaze through this duel and return everyone to normal!
+      </p>
+      <h3>Notes to Grader</h3>
+      <p>
+        As part of the story you can choose to play music by pressing the on screen button as well! It will play
+        the song "Sway to My Beat in Cosmos" by Honkai Star Rail's Robin!
+        Each card is a rectangle object so I have 19 rectangles, 2 spheres, and 1 pyramid for my shapes. 
+        My object model is pom pom from honkai star rail, and I imported orbital controls for my camera to make 
+        editing and viewing easier. I personally made all of the star rail cards using an online card making tool also!
+        so I worked really hard on this story cohesion. I only wish I could have implemented a way to animate pom pom or
+        make more objects to appear on each card
+      </p>
+    </div>
+    <div id="controls">
+      <button id="musicButton">Play/Pause Music</button>
+      <audio id="backgroundMusic" loop>
+        <source src="resources/Sway to My Beat in Cosmos.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+    <canvas id="c"></canvas>
+  </div>
 
-    <body>
-      <canvas id="c" ></canvas>
-    </body>
-    <script  type="importmap">{
+
+  <script type="importmap">
+    {
       "imports": {
         "three": "https://threejs.org/build/three.module.js",
         "three/addons/": "https://threejs.org/examples/jsm/"
       }
-    }</script>
-   
-    <script type="module" src="AstralExpress.js"></script>
+    }
+  </script>
+  <script type="module" src="AstralExpress.js"></script>
+</body>
 </html>

@@ -13,7 +13,7 @@ import { FBXLoader } from '../lib/three.js-master/examples/jsm/loaders/FBXLoader
 function main() {
     const canvas = document.querySelector('#c');
     const renderer = new THREE.WebGLRenderer({ canvas });
-    renderer.setSize(window.innerWidth, window.innerHeight); // Set size here to avoid resizing issues at load
+    renderer.setSize(window.innerWidth*.8, window.innerHeight*.8); // Set size here to avoid resizing issues at load
     renderer.outputEncoding = THREE.sRGBEncoding;  // Ensure renderer output encoding is set
 
     // Camera setup
@@ -300,3 +300,14 @@ function main() {
     requestAnimationFrame(render);
 }
 main();
+// Music toggle button functionality
+const musicButton = document.getElementById('musicButton');
+const backgroundMusic = document.getElementById('backgroundMusic');
+
+musicButton.addEventListener('click', () => {
+    if (backgroundMusic.paused) {
+        backgroundMusic.play();
+    } else {
+        backgroundMusic.pause();
+    }
+});
